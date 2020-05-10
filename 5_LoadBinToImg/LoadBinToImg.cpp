@@ -9,8 +9,8 @@ using namespace cv;
 
 int main(int argc, char* argv[]) {
     string targetPath =
-        "/home/beyoung/Desktop/mac-ubuntu-share/work/6_image_depth/1_rdbShmSample/depth_img_analysis_results/9597.bin";
-    string savePath = "../../dst.jpg";
+        "/home/beyoung/Desktop/mac-ubuntu-share/work/6_image_depth/depth_img_analysis_results_far1500/249.bin";
+    string savePath = "/home/beyoung/Desktop/dst.jpg";
     ifstream rfs(targetPath, ios::in | ios::binary);
     // get the data lengh
     streampos pos = rfs.tellg();
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
     // read
     rfs.read(rBuffer, bufSize);
     // convert to Mat
-    Mat img, img2;
+    Mat img;
     img.create(800, 1280, CV_8UC4);
     memcpy(img.data, rBuffer, bufSize);
     // show

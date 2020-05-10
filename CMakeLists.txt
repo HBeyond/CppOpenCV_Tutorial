@@ -1,5 +1,3 @@
-
-
 cmake_minimum_required(VERSION 3.8)
 set(CMAKE_CXX_STANDARD 14)
 project(OpenCVTutorial)
@@ -12,13 +10,13 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 #find_package(Gflags REQUIRED)                                   # gflags
 #find_package(Glog REQUIRED)                                     # glog
 #find_package(Boost COMPONENTS filesystem date_time REQUIRED)    # boost
-#find_package(Boost REQUIRED COMPONENTS filesystem date_time)    # boost and components
+find_package(Boost REQUIRED COMPONENTS filesystem date_time)    # boost and components
 #find_package(Eigen3 REQUIRED)                                   # Eigen
 find_package(OpenCV 3 REQUIRED)                                 # OpenCV
 ## public and prive dependency include directories
 list(APPEND PUBLIC_DEPEND_INCLUDES
 #        ${GFLAGS_INCLUDE_DIRS}
-#        ${Boost_INCLUDE_DIRS}
+        ${Boost_INCLUDE_DIRS}
         )
 list(APPEND PRIVATE_DEPEND_INCLUDES
 #        ${GLOG_INCLUDE_DIRS}
@@ -31,7 +29,7 @@ list(APPEND PRIVATE_DEPEND_INCLUDES
 #        )
 list(APPEND PRIVATE_DEPEND_LIBS
 #        ${GLOG_LIBRARIES}
-#        ${Boost_LIBRARIES}
+        ${Boost_LIBRARIES}
         ${OpenCV_LIBRARIES}
 #        ueye_api turbojpeg
         )
@@ -40,13 +38,13 @@ include_directories(
 #        ${GFLAGS_INCLUDE_DIRS}
 #        ${GLOG_INCLUDE_DIRS}
 #        ${EIGEN3_INCLUDE_DIRS}
-#        ${Boost_INCLUDE_DIRS}
+        ${Boost_INCLUDE_DIRS}
         ${OpenCV_INCLUDE_DIRS}
 )
 set(EXTERNAL_LIBS ${EXTERNAL_LIBS}
 #        ${GFLAGS_LIBRARIES}
 #        ${GLOG_LIBRARIES}
-#        ${Boost_LIBRARIES}
+        ${Boost_LIBRARIES}
         ${OpenCV_LIBRARIES}
         )
 
@@ -73,3 +71,6 @@ add_subdirectory(1_labeling_on_pic)
 add_subdirectory(2_VideoCap)
 add_subdirectory(3_BGRExtractor)
 add_subdirectory(4_MemToBin)
+add_subdirectory(5_LoadBinToImg)
+add_subdirectory(6_ShowCorners)
+
